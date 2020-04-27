@@ -24,7 +24,8 @@ Manage State using context.
 //       recipes: [
 //           {
 //               recipeId: Date.now()
-//               title: 'created title',
+//               title: 'created title', (required)
+                source: '' (Optional: Origin of recipe)
 //               images: ['imgurl', 'imgurl', 'imgurl']
 //               ingredients: [
 //                   {
@@ -46,6 +47,9 @@ Manage State using context.
 //                 }
 //             ],
 //             specialInstructions: 'Textarea for paragraph of specific instructions'
+                recipeType: [
+                    (use a checkbox)
+                ]
 //         },
 //       ]
 //   },
@@ -71,6 +75,7 @@ Manage State using context.
 //           },
 //       ]
 //   },
-
 // ]
+
+
 
