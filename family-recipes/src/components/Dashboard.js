@@ -1,6 +1,7 @@
 import React from 'react';
 
-const AddRecipe = () => {
+const Dashboard = () => {
+
 
     return (
         <div>
@@ -9,4 +10,4 @@ const AddRecipe = () => {
     )
 }
 
-export default AddRecipe
+export default Dashboard
