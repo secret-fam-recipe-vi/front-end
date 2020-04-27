@@ -23,8 +23,9 @@ const Login = () => {
         axiosWithAuth()
           .post(`https://secret-fam-recipes.herokuapp.com/api/login`, user)
           .then(res => {
+            console.log('response:', res.data.token)
             console.log('Submitted Credentials', user)
-            localStorage.setItem('token', res.data.payload);
+            localStorage.setItem('token', res.data.token);
             push('/dashboard');
           })
           .catch(err => console.log({ err }));

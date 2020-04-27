@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useContext from '../context/data'
 
 //this component gets added to the dashboard
 
@@ -7,7 +8,7 @@ const Nav = () => {
   return (
     <div className="nav-container">
       <div>
-        <h2>Welcome back!</h2>
+  <h2>Welcome back!</h2>
       </div>
 
       <div>
