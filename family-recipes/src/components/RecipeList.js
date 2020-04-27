@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import RecipeCard from './RecipeCard';
@@ -16,7 +16,7 @@ useEffect(() => {
         console.log('response', response.data.results)
         setRecipes(response.data.results);
     })
-    .catch(eerror => {
+    .catch(error => {
         console.log('uhoh, error fetching recipes', error)
     })
 

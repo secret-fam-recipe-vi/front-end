@@ -9,7 +9,10 @@ Manage State using context.
     - Title of Recipe
     - Array of objects that includes ingredients and amount.
 
-
+Endpoints:
+`https://secret-fam-recipes.herokuapp.com/api`
+`https://secret-fam-recipes.herokuapp.com/api/register`
+`https://secret-fam-recipes.herokuapp.com/api/login`
 
 // Dummy Data?
 
