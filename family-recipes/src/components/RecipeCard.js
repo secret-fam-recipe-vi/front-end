@@ -1,13 +1,27 @@
 import React from 'react';
 
-const RecipeCard = () => {
-
-
+//i think we are supposed to pass in recipe details
+const RecipeCard = ({details}) => {
     return (
-        <div>
-            
+        <div className="recipe-card">
+            <h2>{details.title}</h2>
+            {/*image?*/}
+
+            <div>
+                ingredients: 
+            <ul>
+                {
+                    details.ingredients.map((ingredient, idx) => <li key={idx}>{ingredient}</li>)
+                }
+            </ul>
+            <p>{details.instructions}</p>
+            <p>{details.notes}</p>
+
+            </div>
         </div>
     )
 }
+
+//also need to add some kind 'tag' to filter recipes
 
 export default RecipeCard
