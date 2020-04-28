@@ -11,11 +11,12 @@ import Nav from './components/Nav'
 import AddRecipe from './components/AddRecipe';
 import Register from './components/Register'
 import {UserContext} from './context/UserContext'
+import useLocalStorage from './hooks/useLocalStorage'
 
 function App() {
 
   const [data, setData] = useState([])
-  const [user, setUser] = useState({
+  const [user, setUser] = useLocalStorage({
     username: '',
     password: '',
   })

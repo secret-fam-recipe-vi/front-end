@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axiosWithAuth from '../utils/axiosWithAuth'
 
 const AddRecipe = () => {
 
-    const handleAddRecipe = () => {
-        return ;
+    const [newRecipe, setNewRecipe] = useState()
+
+    const handleSubmit = () => {
+        axiosWithAuth().post('', newRecipe)
+        .then(console.log(newRecipe))
     }
 
     return (
         <div className='addRecipeBox'>
             <p>Add A Recipe</p>
-            <form onSubmit={handleAddRecipe} className='addRecipeForm'>
+            <form onSubmit={handleSubmit} className='addRecipeForm'>
                 <input type='text' placeholder='Recipe Name'/> <span className='requiredIndicator'>*</span>
                 <br/>
                 <input type='text' placeholder='Source of Recipe'/>
