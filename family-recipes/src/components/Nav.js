@@ -6,7 +6,16 @@ import { UserContext } from "../context/UserContext";
 
 const Nav = () => {
 
-  const { user } = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext)
+
+  const logoutFunction = () => {
+    localStorage.removeItem('token');
+    setUser({
+      username: '',
+      password: ''
+    })
+    console.log('User After Logout:', user)
+  }
 
   console.log('User State in Nav', user)
 
@@ -19,7 +28,7 @@ const Nav = () => {
         <Link to="/Dashboard">Home</Link>
       </div>
       <div>
-        <Link to="/">Log Out</Link>
+        <Link to="/" onClick={logoutFunction}>Log Out</Link>
       </div>
     </div>
   );
