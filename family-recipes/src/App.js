@@ -32,14 +32,12 @@ function App() {
   return (
     <Router>
       <div className="App">
-        
-
-        {/* <Route exact path="/" component={AddRecipe} /> */}
 
         <UserContext.Provider value={{user, setUser}}>
           <Route exact path="/" component={Login} />
           <Route exact path="/register" component={Register} />
           <PrivateRoute path="/dashboard" component={Dashboard}/>
+          <PrivateRoute path="/add-recipe" component={AddRecipe}/>
         </UserContext.Provider>
       </div>
     </Router>

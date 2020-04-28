@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 import RecipeCard from './RecipeCard';
@@ -24,15 +25,16 @@ useEffect(() => {
 
     return (
         <div className='recipe-list'>
-        {recipes.map(recipe => (
-            <RecipeCard
-            key={recipe.id}
-            name={recipe.name}
-            image={recipe.image}
-            ingredients={recipe.ingredients}
-            notes={recipe.notes}
-             />
-        ))}            
+            <Link to='/add-recipe'>Add Recipe</Link>
+            {recipes.map(recipe => (
+                <RecipeCard
+                    key={recipe.id}
+                    name={recipe.name}
+                    image={recipe.image}
+                    ingredients={recipe.ingredients}
+                    notes={recipe.notes}
+                />
+            ))}            
         </div>
     )
 }
