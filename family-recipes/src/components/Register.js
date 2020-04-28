@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 import { DataContext } from '../context/data';
 
@@ -11,10 +12,13 @@ const Register = () => {
         password: '',
     })
 
+    const { push } = useHistory()
+
     const handleSubmit = (e) => {
         e.preventDefault()
         axios.post('https://secret-fam-recipes.herokuapp.com/api/register', newUser)
         .then(console.log('Registration Successful', newUser))
+        push('/');
     }
 
     const handleChanges = (input) => {

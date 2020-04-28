@@ -11,11 +11,6 @@ const Login = () => {
 
     const { push } = useHistory()
 
-    // const [user, setUser] = useState({
-    //     username: '',
-    //     password: '',
-    // })
-
     const handleChanges = (input) => {
         setUser({...user, [input.target.name] : input.target.value})
         console.log('User:',user)

@@ -14,7 +14,7 @@ const Nav = () => {
       username: '',
       password: ''
     })
-    console.log('User After Logout:', user)
+    console.log('User Has Logged Out:', user)
   }
 
   console.log('User State in Nav', user)

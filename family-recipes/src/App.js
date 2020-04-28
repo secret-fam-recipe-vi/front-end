@@ -11,11 +11,12 @@ import Nav from './components/Nav'
 import AddRecipe from './components/AddRecipe';
 import Register from './components/Register'
 import {UserContext} from './context/UserContext'
+import useLocalStorage from './hooks/useLocalStorage'
 
 function App() {
 
   const [data, setData] = useState([])
-  const [user, setUser] = useState({
+  const [user, setUser] = useLocalStorage({
     username: '',
     password: '',
   })
@@ -31,14 +32,12 @@ function App() {
   return (
     <Router>
       <div className="App">
-        
-
-        {/* <Route exact path="/" component={AddRecipe} /> */}
 
         <UserContext.Provider value={{user, setUser}}>
           <Route exact path="/" component={Login} />
           <Route exact path="/register" component={Register} />
           <PrivateRoute path="/dashboard" component={Dashboard}/>
+          <PrivateRoute path="/add-recipe" component={AddRecipe}/>
         </UserContext.Provider>
       </div>
     </Router>
