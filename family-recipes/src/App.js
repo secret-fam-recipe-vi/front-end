@@ -10,10 +10,15 @@ import { DataContext } from './context/data'
 import Nav from './components/Nav'
 import AddRecipe from './components/AddRecipe';
 import Register from './components/Register'
+import {UserContext} from './context/UserContext'
 
 function App() {
 
   const [data, setData] = useState([])
+  const [user, setUser] = useState({
+    username: '',
+    password: '',
+  })
 
   // useEffect(() => {
   //   axios.get(`https://secret-fam-recipes.herokuapp.com/api`)
@@ -26,14 +31,15 @@ function App() {
   return (
     <Router>
       <div className="App">
+        
 
         {/* <Route exact path="/" component={AddRecipe} /> */}
 
-        <DataContext.Provider value={{data}}>
+        <UserContext.Provider value={{user, setUser}}>
           <Route exact path="/" component={Login} />
           <Route exact path="/register" component={Register} />
           <PrivateRoute path="/dashboard" component={Dashboard}/>
-        </DataContext.Provider>
+        </UserContext.Provider>
       </div>
     </Router>
   );

@@ -28,14 +28,16 @@ const Register = () => {
             <h3>Register</h3>
             <form className='loginForm' onSubmit={handleSubmit}>
                 <input
-                    type='text' 
+                    type='text'
+                    name='username'
                     placeholder='username'
                     onChange={handleChanges} 
                     required
                 />
                 <br/>
                 <input 
-                    type='password' 
+                    type='password'
+                    name='password'
                     placeholder='password'
                     onChange={handleChanges}
                     required
