@@ -9,8 +9,18 @@
 
 .App {
   text-align: center;
+  /* border: 2px solid #ff0000; */
+  background-size: cover;
+  height: 100%;
+  
 }
 
+body {
+  background-image: url('./imgs/family.jpg');
+  background-size: cover;
+}
+
+i
 .requiredIndicator {
   color: red;
 }
@@ -23,6 +33,8 @@
   margin: 90px auto;
   width: 20%;
   padding: 20px;
+  background-color: rgba(0,0,0,0.3) !important;
+ 
 }
 
 .newUserLabel {
