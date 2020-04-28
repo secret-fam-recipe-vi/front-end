@@ -1,7 +1,7 @@
 import React from 'react';
 
 //i think we are supposed to pass in recipe details
-const RecipeCard = ({details}) => {
+const RecipeCard = (details) => {
     return (
         <div className="recipe-card">
             <h2>{details.title}</h2>
@@ -9,11 +9,11 @@ const RecipeCard = ({details}) => {
 
             <div>
                 ingredients: 
-            <ul>
-                {
-                    details.ingredients.map((ingredient, idx) => <li key={idx}>{ingredient}</li>)
-                }
-            </ul>
+            <p>
+            
+                    details.ingredients
+                
+            </p>
             <p>{details.instructions}</p>
             <p>{details.notes}</p>
 

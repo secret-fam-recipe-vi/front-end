@@ -12,7 +12,7 @@ const AddRecipe = () => {
             ingredients: "",  // text, required
             instructions: "",  // text, required
             notes: "",  // text, optional
-            categories: []  // array of category ids*, optional
+            categories: [1]  // array of category ids*, optional
         }
     )
 
