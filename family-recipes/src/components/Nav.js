@@ -2,7 +2,18 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
-//this component gets added to the dashboard
+import styled from "styled-components";
+
+
+const NavWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  color: brown;
+  background-color: tan;
+  align-items: center;
+  justify-content: space-around;
+`;
+
 
 const Nav = () => {
 
@@ -20,9 +31,9 @@ const Nav = () => {
   console.log('User State in Nav', user)
 
   return (
-    <div className="nav-container">
+    <NavWrapper>
       <div>
-  <h2>Welcome back {user.username}!</h2>
+  <h2>Welcome back, {user.username}!</h2>
       </div>
       <div>
         <Link to="/Dashboard">Home</Link>
@@ -30,7 +41,7 @@ const Nav = () => {
       <div>
         <Link to="/" onClick={logoutFunction}>Log Out</Link>
       </div>
-    </div>
+    </NavWrapper>
   );
 };
 
