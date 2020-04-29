@@ -28,12 +28,12 @@ i
 /* Login / Register Styles */
 
 .loginBox {
-  border: 2px solid black;
+  border: 2px solid tan;
   border-radius: 8px;
   margin: 90px auto;
   width: 20%;
   padding: 20px;
-  background-color: rgba(0,0,0,0.3) !important;
+  background-color: rgba(145, 77, 32, 0.3) !important;
  
 }
 
