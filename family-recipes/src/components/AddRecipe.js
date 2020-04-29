@@ -26,11 +26,11 @@ const AddRecipe = () => {
     const handleArrayChange = (input) => {
         if (document.getElementById('checkbox' + input.target.value).checked){
             newRecipe.categories.push(input.target.value)
-            console.log('New Recipe:',newRecipe)
+            console.log(`Added Category: ${input.target.value}`,newRecipe)
         } else if (input.target.value === input.target.value) {
             const index = newRecipe.categories.indexOf(input.target.value)
             newRecipe.categories.splice(index,1)
-            console.log('Equals Self:',newRecipe)
+            console.log(`Removed Category Category: ${input.target.value}`,newRecipe)
         }
     }
 
