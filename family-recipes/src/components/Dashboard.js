@@ -8,7 +8,6 @@ const Dashboard = () => {
 
     return (
         <div>
-            Dashboard is here
             <Nav />
             <RecipeList />
         </div>
