@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import axiosWithAuth from '../utils/axiosWithAuth'
 
 import RecipeCard from './RecipeCard';
+import SearchForm from './SearchForm';
+
 import { RecipeContext } from '../context/RecipeContext';
 
 import styled from 'styled-components'
@@ -41,10 +43,13 @@ const RecipeList = () => {
         })
     }, []);
 
+  
+
     return (
         <div className='recipe-list'>
 
             <Link to='/add-recipe'> <AddButton>Add Recipe</AddButton> </Link>
+            <SearchForm />
             <List>
             {recipes.map(recipe => (
                 <RecipeCard

@@ -36,10 +36,13 @@ const Nav = () => {
   <h2>Welcome back, {user.username}!</h2>
       </div>
       <div>
-        <Link to="/Dashboard">Home</Link>
+        <Link to="/Dashboard">My Recipes</Link>
       </div>
       <div>
         <Link to="/" onClick={logoutFunction}>Log Out</Link>
+      </div>
+      <div>
+        <a href="https://secretfamily-recipes-6.netlify.app/" >Home</a>
       </div>
     </NavWrapper>
   );
