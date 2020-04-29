@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Link } from 'react-router-dom'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 
+import { DataContext } from '../context/data';
+
 const Register = () => {
 
     const [newUser, setNewUser] = useState({

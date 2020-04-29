@@ -1,68 +1,63 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import axiosWithAuth from '../utils/axiosWithAuth'
-
 import RecipeCard from './RecipeCard';
-import { RecipeContext } from '../context/RecipeContext';
+
+import styled from 'styled-components'
+
+
+
+const List = styled.div`
+display: flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
+align-content: center;
+opacity: 60%;
+`
+
+const Addbutton  = styled.button`
+color: tan;
+background-color: #914d20;
+border-radius: 10px;
+border: 1px solid black;
+padding: 10px;
+`
 
 const RecipeList = () => {
 
-    const url = 'https://secret-fam-recipes.herokuapp.com/api/recipes'
-    const {recipes, setRecipes} = useContext(RecipeContext)
+const url = 'https://secret-fam-recipes.herokuapp.com/api/recipes'
 
-    // useEffect(() => {
-    //     const results = recipes.filter(recipe =>
-    //         recipe.toLowerCase().includes(searchTerm.toLowerCase())
-    //     );
-    //     setSearchResults(results);
-    //   }, [searchTerm]);
+const [recipes, setRecipes] = useState([])
 
-    //   const handleChange = event => {
-    //     setSearchTerm(event.target.value);
-    //   };
+useEffect(() => {
+    axiosWithAuth()
+    .get(url)
+    .then(response => {
+        console.log('response from api', response)
+        setRecipes(response.data);
+    })
+    .catch(error => {
+        console.log('uhoh, error fetching recipes', error)
+    })
 
-    useEffect(() => {
-        axiosWithAuth()
-        .get(url)
-        .then(response => {
-            console.log('response', response)
-            setRecipes(response.data);
-        })
-        .catch(error => {
-            console.log('uhoh, error fetching recipes', error)
-        })
-    }, []);
+}, []);
 
     return (
-        <div className='recipe-list'>
-
-            {/* <form>
-
-                <label htmlFor="name">Search:</label>
-                <input
-                    id="name"
-                    type="text"
-                    name="textfield"
-                    placeholder="Search"
-                    value={searchTerm}
-                    onChange={handleChange}
-                />
-             </form> */}
-
-            <Link to='/add-recipe'>Add Recipe</Link>
+        <div>
+        <Link to='/add-recipe'> <Addbutton>Add Recipe</Addbutton> </Link>
+        <List>    
             {recipes.map(recipe => (
                 <RecipeCard
                     key={recipe.id}
-                    id={recipe.id}
                     title={recipe.title}
                     source={recipe.source}
                     ingredients={recipe.ingredients}
                     instructions={recipe.instructions}
                     notes={recipe.notes}
-                    categories={[recipe.categories]}
                 />
-            ))}        
-        </div>
+            ))}            
+        </List>
+      </div>
     )
 }
 
