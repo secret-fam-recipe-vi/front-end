@@ -4,7 +4,7 @@ import axiosWithAuth from '../utils/axiosWithAuth'
 const removeRecipe = (details) => {
     // make a delete request to delete this color
     axiosWithAuth().delete(`https://secret-fam-recipes.herokuapp.com/api/recipes/${details.id}`, details)
-    // window.location.reload(true);
+    window.location.reload(true);
     console.log('to delete:', details)
 
 }
@@ -23,7 +23,10 @@ const RecipeCard = (details) => {
                 }
             </ul>
             <p>{details.instructions}</p>
-            <p>{details.notes}</p>
+            {/* <p>{details.notes}</p>
+            {details.categories.map((i) => {
+                return (<p>{i}</p>)
+            })} */}
 
             </div>
             <button onClick={() => {
