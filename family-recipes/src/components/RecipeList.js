@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom'
-import axios from 'axios';
 import axiosWithAuth from '../utils/axiosWithAuth'
 
 import RecipeCard from './RecipeCard';
@@ -9,10 +8,7 @@ import { RecipeContext } from '../context/RecipeContext';
 const RecipeList = () => {
 
     const url = 'https://secret-fam-recipes.herokuapp.com/api/recipes'
-
     const {recipes, setRecipes} = useContext(RecipeContext)
-    // const [searchTerm, setSearchTerm] = useState("");
-    // const [searchResults, setSearchResults] = useState([]);
 
     // useEffect(() => {
     //     const results = recipes.filter(recipe =>
@@ -27,7 +23,7 @@ const RecipeList = () => {
 
     useEffect(() => {
         axiosWithAuth()
-        .get('https://secret-fam-recipes.herokuapp.com/api/recipes')
+        .get(url)
         .then(response => {
             console.log('response', response)
             setRecipes(response.data);

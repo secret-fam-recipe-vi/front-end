@@ -22,18 +22,20 @@ const RecipeCard = (details) => {
         setRecipeToEdit(details)
         console.log('Editing: ', details)
     }
-
+  
     return (
         <div className="recipe-card">
             <h2>{details.title}</h2>
 
             <div>
                 ingredients: 
-            <ul>
-                {
-                    details.ingredients
-                }
-            </ul>
+
+            <p>
+            
+              {details.ingredients}
+                
+            </p>
+      
             <p>{details.instructions}</p>
             {/* <p>{details.notes}</p>
             {details.categories.map((i) => {
