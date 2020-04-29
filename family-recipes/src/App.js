@@ -38,6 +38,7 @@ function App() {
           <Route exact path="/register" component={Register} />
           <PrivateRoute path="/dashboard" component={Dashboard}/>
           <PrivateRoute path="/add-recipe" component={AddRecipe}/>
+          <PrivateRoute path="/update-recipe/:id" component={AddRecipe}/>
         </UserContext.Provider>
       </div>
     </Router>

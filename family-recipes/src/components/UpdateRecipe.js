@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import axiosWithAuth from '../utils/axiosWithAuth'
 import { useHistory } from 'react-router-dom'
 
-const AddRecipe = () => {
+const UpdateRecipe = () => {
 
-    const [newRecipe, setNewRecipe] = useState(
+    const [updatedRecipe, setUpdatedRecipe] = useState(
         {
             title: "",  // string, required
             source: "",  // string, optional
@@ -92,7 +92,7 @@ const AddRecipe = () => {
                 <br/>
 
                 <label for='lunch'>Lunch</label>
-                <input value={[...newRecipe.categories, 2]} type='checkbox' name='categories' onChange={handleChanges} />
+                <input value='2' type='checkbox' name='categories' onChange={handleChanges} />
                 <br/>
 
                 <label for='dinner'>Dinner</label>
@@ -108,7 +108,7 @@ const AddRecipe = () => {
                 <br/>
 
                 <label for='gluten-free'>Gluten-Free</label>
-                <input value='6' type='checkbox' name='categories' onChecked={handleChanges} />
+                <input value='6' type='checkbox' name='categories' onChange={handleChanges} />
                 <br/>
 
                 {/* <input 
@@ -125,4 +125,4 @@ const AddRecipe = () => {
     )
 }
 
-export default AddRecipe
+export default UpdateRecipe
