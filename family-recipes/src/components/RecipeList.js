@@ -21,7 +21,8 @@ color: tan;
 background-color: #914d20;
 border-radius: 10px;
 border: 1px solid tan;
-padding: 10px;`
+padding: 10px;
+margin: 10px 10px`
 
 
 const RecipeList = () => {

@@ -1,10 +1,21 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import axiosWithAuth from '../utils/axiosWithAuth';
-import SearchForm from './SearchForm';
 import RecipeCard from './RecipeCard';
 import { RecipeContext } from '../context/RecipeContext';
 import { SearchContext } from '../context/SearchContext';
+
+import styled from 'styled-components';
+
+const Button = styled.button`
+color: tan;
+background-color: #914d20;
+border-radius: 10px;
+border: 1px solid tan;
+padding: 10px;
+`
+
+
 
 const SearchResults = () => {
 
@@ -27,11 +38,13 @@ const SearchResults = () => {
 
     return (
         <div className='recipe-list'>
-            <Link to='/dashboard'>All Recipes</Link>
+            <div className='button-wrapper'>
+            <Link to='/dashboard'><Button><strong>All Recipes</strong></Button></Link>
             <br/>
-            <Link to='/add-recipe'>Add Recipe</Link>
-            <SearchForm />
+            <Link to='/add-recipe'><Button><strong>Add Recipe</strong></Button></Link>  
+            </div>
             {searchResults.map(recipe => (
+                <div className='searched-cards'>
                 <RecipeCard
                     key={recipe.id}
                     id={recipe.id}
@@ -42,6 +55,7 @@ const SearchResults = () => {
                     notes={recipe.notes}
                     categories={[recipe.categories]}
                 />
+                </div>
             ))}        
         </div>
     )

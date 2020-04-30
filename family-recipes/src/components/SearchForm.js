@@ -37,6 +37,7 @@ export default function SearchForm() {
     value={searchTerm}
     type="text"
     placeholder="what're ya lookin for?"
+    required
     />
     <input
       type="submit"
