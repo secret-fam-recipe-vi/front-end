@@ -1,36 +1,15 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom'
 import axiosWithAuth from '../utils/axiosWithAuth'
-
+import SearchForm from './SearchForm'
 import RecipeCard from './RecipeCard';
-import SearchForm from './SearchForm';
-
 import { RecipeContext } from '../context/RecipeContext';
-
-import styled from 'styled-components'
-
-const List = styled.div`
-display: flex;
-flex-wrap: wrap;
-justify-content: space-evenly;
-align-content: center;
-opacity: 60%;
-`
-
-const AddButton  = styled.button`
-color: tan;
-background-color: #914d20;
-border-radius: 10px;
-border: 1px solid black;
-padding: 10px;`
-
-
-const RecipeList = () => {
-
+import { SearchContext } from '../context/SearchContext'
+const SearchResults = () => {
     const url = 'https://secret-fam-recipes.herokuapp.com/api/recipes'
     const {recipes, setRecipes} = useContext(RecipeContext)
-
-
+    const {searchTerm, setSearchTerm} = useContext(SearchContext);
+    const {searchResults, setSearchResults} = useContext(SearchContext);
     useEffect(() => {
         axiosWithAuth()
         .get(url)
@@ -42,16 +21,13 @@ const RecipeList = () => {
             console.log('uhoh, error fetching recipes', error)
         })
     }, []);
-
-  
-
     return (
         <div className='recipe-list'>
-
-            <Link to='/add-recipe'> <AddButton>Add Recipe</AddButton> </Link>
+            <Link to='/dashboard'>All Recipes</Link>
+            <br/>
+            <Link to='/add-recipe'>Add Recipe</Link>
             <SearchForm />
-            <List>
-            {recipes.map(recipe => (
+            {searchResults.map(recipe => (
                 <RecipeCard
                     key={recipe.id}
                     id={recipe.id}
@@ -62,10 +38,8 @@ const RecipeList = () => {
                     notes={recipe.notes}
                     categories={[recipe.categories]}
                 />
-            ))}  
-            </List>      
+            ))}        
         </div>
     )
 }
-
-export default RecipeList
+export default SearchResults
