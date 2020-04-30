@@ -47,17 +47,17 @@ const RecipeCard = (details) => {
   
     return (
         <Card className='recipeCard'>
-            <h2>{details.title}</h2>
+            <h2><strong>{details.title}</strong></h2>
 
             <div>
-                Ingredients: 
+                <strong>Ingredints:</strong>
             <p>
               {details.ingredients}
             </p>
       
-            <p>Instructions: {details.instructions}</p>
-            <p>Notes: {details.notes}</p>
-            <p>Categories: {details.categories} </p>
+            <p><strong>Instructions:</strong> {details.instructions}</p>
+            <p><strong>Notes:</strong> {details.notes}</p>
+            <p><strong>Categories:</strong> {details.categories} </p>
 
             </div>
             <button className='cardButton' onClick={pushToEdit}>Edit Recipe</button>
