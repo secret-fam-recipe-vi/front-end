@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 
 import { UserContext } from './context/UserContext';
-import { RecipeContext } from './context/RecipeContext'
-import { SearchContext } from './context/SearchContext'
+import { RecipeContext } from './context/RecipeContext';
+import { SearchContext } from './context/SearchContext';
 
 import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import AddRecipe from './components/AddRecipe';
 import Register from './components/Register'
-import useLocalStorage from './hooks/useLocalStorage';
 import UpdateRecipe from './components/UpdateRecipe';
-import SearchResults from './components/SearchResults'
+import SearchResults from './components/SearchResults';
+import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
 
@@ -21,7 +21,9 @@ function App() {
     username: '',
     password: '',
   })
+
   const [recipes, setRecipes] = useState([])
+
   const [recipeToEdit, setRecipeToEdit] = useState({
     title: "",
     source: "",
@@ -32,6 +34,7 @@ function App() {
   })
 
   const [searchTerm, setSearchTerm] = useState('');
+  
   const [searchResults, setSearchResults] = useState([]);
 
     return (

@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom'
-import axiosWithAuth from '../utils/axiosWithAuth'
 import { useHistory } from 'react-router-dom'
+import axiosWithAuth from '../utils/axiosWithAuth'
 
 import {RecipeContext} from '../context/RecipeContext'
 
@@ -25,11 +25,9 @@ const UpdateRecipe = () => {
 
     return (
         <div className='addRecipeBox'>
-            
-            <Link to='/dashboard'>Back to Dashboard</Link>
+            <Link to='/dashboard' className='toDashboard'>Back to Dashboard</Link>
             <p>Update Recipe:</p>
             <form onSubmit={handleSubmit} className='addRecipeForm'>
-
                 <input 
                     type='text' 
                     placeholder='Recipe Name'
@@ -38,9 +36,7 @@ const UpdateRecipe = () => {
                     defaultValue={recipeToEdit.title}
                     required
                 />
-                <span className='requiredIndicator'>*</span>
                 <br/>
-
                 <input 
                     type='text' 
                     placeholder='Source of Recipe'
@@ -49,7 +45,6 @@ const UpdateRecipe = () => {
                     defaultValue={recipeToEdit.source}
                 />
                 <br/>
-
                 <textarea 
                     rows='4' 
                     cols="50" 
@@ -59,9 +54,7 @@ const UpdateRecipe = () => {
                     defaultValue={recipeToEdit.ingredients}
                     required
                 /> 
-                <span className='requiredIndicator'>*</span>
                 <br/>
-
                 <textarea 
                     rows='4' 
                     cols="50" 
@@ -71,9 +64,7 @@ const UpdateRecipe = () => {
                     defaultValue={recipeToEdit.instructions}
                     required
                 />
-                <span className='requiredIndicator'>*</span>
                 <br/>
-
                 <textarea 
                     rows='4' 
                     cols="50" 
@@ -83,11 +74,9 @@ const UpdateRecipe = () => {
                     defaultValue={recipeToEdit.notes}
                 />
                 <br/>
-
                 <br/>           
                 <input type='submit' className='submit'/>
                 <br/>
-
             </form>
         </div>
     )

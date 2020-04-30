@@ -1,35 +1,34 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom'
 import axiosWithAuth from '../utils/axiosWithAuth'
+import styled from 'styled-components'
 
 import RecipeCard from './RecipeCard';
 import SearchForm from './SearchForm';
 
 import { RecipeContext } from '../context/RecipeContext';
 
-import styled from 'styled-components'
-
 const List = styled.div`
 display: flex;
 flex-wrap: wrap;
 justify-content: space-evenly;
 align-content: center;
-opacity: 60%;
+opacity: 90%;
 `
 
 const AddButton  = styled.button`
 color: tan;
 background-color: #914d20;
 border-radius: 10px;
-border: 1px solid black;
+border: 1px solid tan;
 padding: 10px;`
 
 
 const RecipeList = () => {
 
     const url = 'https://secret-fam-recipes.herokuapp.com/api/recipes'
-    const {recipes, setRecipes} = useContext(RecipeContext)
 
+    const {recipes, setRecipes} = useContext(RecipeContext)
 
     useEffect(() => {
         axiosWithAuth()
@@ -43,12 +42,9 @@ const RecipeList = () => {
         })
     }, []);
 
-  
-
     return (
         <div className='recipe-list'>
-
-            <Link to='/add-recipe'> <AddButton>Add Recipe</AddButton> </Link>
+            <Link to='/add-recipe'> <AddButton className='addRecipeButton'>Add Recipe</AddButton> </Link>
             <SearchForm />
             <List>
             {recipes.map(recipe => (
