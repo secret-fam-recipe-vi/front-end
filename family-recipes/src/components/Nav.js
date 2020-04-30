@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
-
 import styled from "styled-components";
 
+import { UserContext } from "../context/UserContext";
 
 const NavWrapper = styled.div`
   display: flex;
@@ -13,7 +12,6 @@ const NavWrapper = styled.div`
   align-items: center;
   justify-content: space-around;
 `;
-
 
 const Nav = () => {
 
@@ -33,16 +31,16 @@ const Nav = () => {
   return (
     <NavWrapper>
       <div>
-  <h2>Welcome back, {user.username}!</h2>
+        <h2>Welcome back, {user.username}!</h2>
       </div>
       <div>
-        <Link to="/Dashboard">My Recipes</Link>
+        <a href="https://secretfamily-recipes-6.netlify.app/" className='navLink'>Home</a>
       </div>
       <div>
-        <Link to="/" onClick={logoutFunction}>Log Out</Link>
+        <Link to="/Dashboard" className='navLink'>My Recipes</Link>
       </div>
       <div>
-        <a href="https://secretfamily-recipes-6.netlify.app/" >Home</a>
+        <Link to="/" className='navLink' onClick={logoutFunction}>Log Out</Link>
       </div>
     </NavWrapper>
   );

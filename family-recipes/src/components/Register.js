@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom'
-import axios from 'axios'
-import { useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const Register = () => {
 
@@ -23,7 +23,6 @@ const Register = () => {
         setNewUser({...newUser, [input.target.name] : input.target.value})
         console.log('New User:',newUser)
     }
-
 
     return (
         <div className='loginBox'>
@@ -47,7 +46,6 @@ const Register = () => {
                 <br/>
                 <input type='submit' className='submit'/>
                 <br/>
-
                 <label for='newUser' className='newUserLabel'>Already have an account?</label>
                     <Link to='/' className='linkToLogin'>Login</Link>
                 <br/>

@@ -1,15 +1,18 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Link } from 'react-router-dom'
-import axiosWithAuth from '../utils/axiosWithAuth'
-import SearchForm from './SearchForm'
+import { Link } from 'react-router-dom';
+import axiosWithAuth from '../utils/axiosWithAuth';
+import SearchForm from './SearchForm';
 import RecipeCard from './RecipeCard';
 import { RecipeContext } from '../context/RecipeContext';
-import { SearchContext } from '../context/SearchContext'
+import { SearchContext } from '../context/SearchContext';
+
 const SearchResults = () => {
+
     const url = 'https://secret-fam-recipes.herokuapp.com/api/recipes'
     const {recipes, setRecipes} = useContext(RecipeContext)
     const {searchTerm, setSearchTerm} = useContext(SearchContext);
     const {searchResults, setSearchResults} = useContext(SearchContext);
+
     useEffect(() => {
         axiosWithAuth()
         .get(url)
@@ -21,6 +24,7 @@ const SearchResults = () => {
             console.log('uhoh, error fetching recipes', error)
         })
     }, []);
+
     return (
         <div className='recipe-list'>
             <Link to='/dashboard'>All Recipes</Link>
@@ -42,4 +46,5 @@ const SearchResults = () => {
         </div>
     )
 }
+
 export default SearchResults

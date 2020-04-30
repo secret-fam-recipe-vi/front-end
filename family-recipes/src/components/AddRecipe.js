@@ -38,12 +38,13 @@ const AddRecipe = () => {
         axiosWithAuth().post('https://secret-fam-recipes.herokuapp.com/api/recipes', newRecipe)
         .then(console.log('New Recipe Added: ', newRecipe))
         push('/dashboard');
+        window.location.reload(true);
     }
 
     return (
         <div className='addRecipeBox'>
-            <Link to='/dashboard'>Back to Dashboard</Link>
-            <p>Add A Recipe</p>
+            <Link to='/dashboard' className='toDashboard'>Back to Dashboard</Link>
+            <h2>Add A Recipe</h2>
             <form onSubmit={handleSubmit} className='addRecipeForm'>
 
                 <input 
@@ -51,9 +52,9 @@ const AddRecipe = () => {
                     placeholder='Recipe Name'
                     name='title'
                     onChange={handleChanges}
+                    value={newRecipe.title}
                     required
                 />
-                <span className='requiredIndicator'>*</span>
                 <br/>
 
                 <input 
@@ -61,6 +62,7 @@ const AddRecipe = () => {
                     placeholder='Source of Recipe'
                     name='source'
                     onChange={handleChanges}
+                    value={newRecipe.source}
                 />
                 <br/>
 
@@ -70,9 +72,9 @@ const AddRecipe = () => {
                     placeholder='Ingredients'
                     name='ingredients'
                     onChange={handleChanges}
+                    value={newRecipe.ingredients}
                     required
                 /> 
-                <span className='requiredIndicator'>*</span>
                 <br/>
 
                 <textarea 
@@ -81,9 +83,9 @@ const AddRecipe = () => {
                     placeholder='Instructions'
                     name='instructions'
                     onChange={handleChanges}
+                    value={newRecipe.instructions}
                     required
                 />
-                <span className='requiredIndicator'>*</span>
                 <br/>
 
                 <textarea 
@@ -92,6 +94,7 @@ const AddRecipe = () => {
                     placeholder='Notes'
                     name='notes'
                     onChange={handleChanges}
+                    value={newRecipe.notes}
                 />
                 <br/>
 

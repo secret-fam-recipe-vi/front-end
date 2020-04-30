@@ -1,14 +1,14 @@
-import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import axiosWithAuth from '../utils/axiosWithAuth'
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import {UserContext} from '../context/UserContext'
+import axiosWithAuth from '../utils/axiosWithAuth';
+
+import { UserContext } from '../context/UserContext';
 
 const Login = () => {
 
     const {user, setUser} = useContext(UserContext)
-
     const { push } = useHistory()
 
     const handleChanges = (input) => {

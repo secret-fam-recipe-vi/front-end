@@ -1,11 +1,8 @@
 import React from 'react';
-
-import RecipeList from './RecipeList'
-import Nav from './Nav'
+import RecipeList from './RecipeList';
+import Nav from './Nav';
 
 const Dashboard = () => {
-
-
     return (
         <div>
             <Nav />

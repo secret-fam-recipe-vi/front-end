@@ -34,7 +34,6 @@ const RecipeCard = (details) => {
     const {recipeToEdit, setRecipeToEdit} = useContext(RecipeContext)
 
     const removeRecipe = (details) => {
-        // make a delete request to delete this color
         axiosWithAuth().delete(`https://secret-fam-recipes.herokuapp.com/api/recipes/${details.id}`, details)
         window.location.reload(true);
         console.log('to delete:', details)
@@ -47,31 +46,26 @@ const RecipeCard = (details) => {
     }
   
     return (
-        <Card>
+        <Card className='recipeCard'>
             <h2>{details.title}</h2>
 
             <div>
-                ingredients: 
-
+                Ingredients: 
             <p>
-            
               {details.ingredients}
-                
             </p>
       
-            <p>instructions: {details.instructions}</p>
-            <p>notes: {details.notes}</p>
-            <p>categories: {details.categories} </p>
+            <p>Instructions: {details.instructions}</p>
+            <p>Notes: {details.notes}</p>
+            <p>Categories: {details.categories} </p>
 
             </div>
-            <button onClick={pushToEdit}>Edit Recipe</button>
+            <button className='cardButton' onClick={pushToEdit}>Edit Recipe</button>
             <br/>
-            <button onClick={() => {removeRecipe(details)}}> Delete Recipe </button>
+            <button className='cardButton' onClick={() => {removeRecipe(details)}}> Delete Recipe </button>
         </Card>
 
     )
 }
-
-//also need to add some kind 'tag' to filter recipes
 
 export default RecipeCard
